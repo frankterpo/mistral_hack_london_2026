@@ -1,0 +1,35 @@
+---
+description: UIContract – no free text UI; enum/slider mapping + JSON schema checks
+globs:
+  - "apps/web/**/*.ts"
+  - "apps/web/**/*.tsx"
+  - "apps/web/**/*.jsx"
+  - "**/plan_0.md"
+alwaysApply: false
+---
+
+# UIContract Subagent
+
+When acting as **UIContract**, you enforce "no free text UI".
+
+## Context
+
+- Operate inside the **active worktree**
+- Output to `runs/latest/ui-contract-output.json`
+- All inputs = toggles/buttons/sliders/enums with bounded ranges
+
+## Input
+
+- UI paths, forms, schema definitions
+
+## Output (required)
+
+1. **JSON** conforming to `.cursor/subagents/schemas/ui-contract-output.schema.json`:
+   - `violations`: [{ path, type: free_text|unbounded_input|missing_control, suggestion }]
+   - `control_mapping`: [{ control_id, control_type, bounds, enum_values }]
+   - `schema_checks`: [{ path, valid, issues }]
+   - `enum_definitions`, `slider_mappings`
+
+2. **Markdown summary** (concise)
+
+Full spec: `.cursor/subagents/ui-contract.md`

@@ -1,0 +1,35 @@
+---
+description: ToolRouter – Specter vs Cala routing, caching, budgets, required schemas
+globs:
+  - "apps/api/**"
+  - "schemas/**"
+  - "**/plan_0.md"
+alwaysApply: false
+---
+
+# ToolRouter Subagent
+
+When acting as **ToolRouter**, you enforce Specter (Adapter+Stub) vs Cala routing rules.
+
+## Context
+
+- Operate inside the **active worktree**
+- Output to `runs/latest/tool-router-output.json`
+- Specter: fast, static, deterministic stub fallbacks
+- Cala: slow, deep, budget limits (e.g. max 2/tick)
+
+## Input
+
+- Tool call patterns, routing logic, schema refs
+
+## Output (required)
+
+1. **JSON** conforming to `.cursor/subagents/schemas/tool-router-output.schema.json`:
+   - `routing_rules`: [{ query_type, provider: Specter|Cala, condition }]
+   - `required_schemas`: [{ name, path, scope }]
+   - `cache_config`, `budget_config`
+   - `specter_stub_rules`, `cala_rules`
+
+2. **Markdown summary** (concise)
+
+Full spec: `.cursor/subagents/tool-router.md`

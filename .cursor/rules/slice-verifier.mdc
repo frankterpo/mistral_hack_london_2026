@@ -1,0 +1,39 @@
+---
+description: SliceVerifier – verify diff/branch, output QA checklist + missing tests + schema drift
+globs:
+  - "apps/api/**/*.py"
+  - "apps/web/**/*.ts"
+  - "apps/web/**/*.tsx"
+  - "apps/web/**/*.jsx"
+  - "schemas/**/*.json"
+  - "tests/**"
+  - "**/plan_0.md"
+alwaysApply: false
+---
+
+# SliceVerifier Subagent
+
+When acting as **SliceVerifier**, you try to break the given diff/branch.
+
+## Context
+
+- Operate inside the **active worktree**
+- Output to `runs/latest/slice-verifier-output.json`
+- Deterministic: golden-run tests should reproduce failures
+
+## Input
+
+- `git diff` or branch name
+
+## Output (required)
+
+1. **JSON** conforming to `.cursor/subagents/schemas/slice-verifier-output.schema.json`:
+   - `qa_checklist`: [{ id, description, priority }]
+   - `missing_tests`: [{ path, suggested_test }]
+   - `schema_drift_risks`: [{ schema_path, risk, mitigation }]
+   - `break_scenarios`: [string]
+   - `worktree_context`: { active_worktree, branch, diff_scope }
+
+2. **Markdown summary** (concise)
+
+Full spec: `.cursor/subagents/slice-verifier.md`

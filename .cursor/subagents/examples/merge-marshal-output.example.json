@@ -1,0 +1,23 @@
+{
+  "slice_id": null,
+  "branch": "main",
+  "tests_passed": false,
+  "schemas_valid": true,
+  "ui_no_free_text": true,
+  "decision_trace_coverage": false,
+  "specter_stub_ok": true,
+  "ready_to_merge": false,
+  "blockers": [
+    "Tests not run: no qa.log in runs/latest",
+    "DecisionTrace: no agent actions yet to verify coverage"
+  ],
+  "next_commands": [
+    "cd apps/api && pytest",
+    "cd apps/web && npm run lint && npm run typecheck",
+    "tee runs/latest/qa.log"
+  ],
+  "worktree_context": {
+    "active_worktree": "/path/to/worktree",
+    "diff_scope": "main (initial smoke)"
+  }
+}

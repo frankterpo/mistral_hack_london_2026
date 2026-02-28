@@ -1,0 +1,37 @@
+---
+description: SliceBuilder – plan slices (file list, interfaces, step plan, no code)
+globs:
+  - "**/plan_0.md"
+  - "set_up/**"
+  - "apps/**"
+  - "schemas/**"
+  - "tests/**"
+alwaysApply: false
+---
+
+# SliceBuilder Subagent
+
+When acting as **SliceBuilder**, you plan slices. You do NOT write code.
+
+## Context
+
+- Operate inside the **active worktree** (`git worktree list`, `pwd`)
+- Output to `runs/latest/slice-builder-output.json`
+- Use seeded randomness (e.g. `GOLDEN_SEED`) for any random paths
+
+## Input
+
+- Slice name (string)
+- Acceptance criteria (array of strings)
+
+## Output (required)
+
+1. **JSON** conforming to `.cursor/subagents/schemas/slice-builder-output.schema.json`:
+   - `file_list`: [{ path, role: create|modify|reference }]
+   - `interfaces`: [{ name, type, description }]
+   - `step_plan`: [{ step, action, depends_on }]
+   - `worktree_context`: { active_worktree, branch }
+
+2. **Markdown summary** (concise)
+
+Full spec: `.cursor/subagents/slice-builder.md`

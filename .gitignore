@@ -1,0 +1,6 @@
+# Run artifacts (ephemeral per worktree)
+# RUNS.md at repo root stays tracked
+runs/**
+
+# Worktrees created by launch_worktrees.sh
+wt/

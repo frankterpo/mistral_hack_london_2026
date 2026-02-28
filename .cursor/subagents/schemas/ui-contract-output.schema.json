@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ui-contract-output.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["violations", "control_mapping", "schema_checks", "enum_definitions", "slider_mappings"],
+  "properties": {
+    "violations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "type": { "type": "string", "enum": ["free_text", "unbounded_input", "missing_control"] },
+          "suggestion": { "type": "string" }
+        }
+      }
+    },
+    "control_mapping": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "control_id": { "type": "string" },
+          "control_type": { "type": "string", "enum": ["toggle", "slider", "enum", "button"] },
+          "bounds": { "type": "array", "items": { "type": "number" } },
+          "enum_values": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "schema_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "valid": { "type": "boolean" },
+          "issues": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "enum_definitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "values": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "slider_mappings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "min": { "type": "number" },
+          "max": { "type": "number" },
+          "step": { "type": "number" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "slice-verifier-output.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["qa_checklist", "missing_tests", "schema_drift_risks", "break_scenarios", "worktree_context"],
+  "properties": {
+    "qa_checklist": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "description", "priority"],
+        "properties": {
+          "id": { "type": "string" },
+          "description": { "type": "string" },
+          "priority": { "type": "string", "enum": ["high", "medium", "low"] }
+        }
+      }
+    },
+    "missing_tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": { "type": "string" },
+          "suggested_test": { "type": "string" }
+        }
+      }
+    },
+    "schema_drift_risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "schema_path": { "type": "string" },
+          "risk": { "type": "string" },
+          "mitigation": { "type": "string" }
+        }
+      }
+    },
+    "break_scenarios": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "worktree_context": {
+      "type": "object",
+      "properties": {
+        "active_worktree": { "type": "string" },
+        "branch": { "type": "string" },
+        "diff_scope": { "type": "string" }
+      }
+    }
+  }
+}

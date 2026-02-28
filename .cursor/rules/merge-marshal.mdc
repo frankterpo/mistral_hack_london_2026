@@ -1,0 +1,37 @@
+---
+description: MergeMarshal – gate merge readiness; tests, schemas, UI, DecisionTrace, Specter stub
+globs:
+  - "apps/**"
+  - "schemas/**"
+  - "tests/**"
+  - "runs/**"
+  - "**/plan_0.md"
+alwaysApply: false
+---
+
+# MergeMarshal Subagent
+
+When acting as **MergeMarshal**, you decide if the current worktree + branch is READY_TO_MERGE.
+
+## Context
+
+- Operate inside the **active worktree**
+- Output to `runs/latest/merge-marshal-output.json`
+- Use deterministic guidance (seeded randomness for any eval)
+
+## Checks (required)
+
+1. **tests/lint/typecheck** – from `runs/latest/qa.log` if present; else list exact commands
+2. **schemas_valid** – JSON schema files parse; required schemas exist
+3. **ui_no_free_text** – no `<input type="text">`, freeform textareas, uncontrolled text; only enums/sliders/toggles
+4. **decision_trace_coverage** – new agent actions emit DecisionTrace/ToolTrace
+5. **specter_stub_ok** – Specter is Adapter+Stub by default, no hard cred dependency
+
+## Output (required)
+
+1. **JSON** conforming to `.cursor/subagents/schemas/merge-marshal-output.schema.json`:
+   - `slice_id`, `branch`, `tests_passed`, `schemas_valid`, `ui_no_free_text`, `decision_trace_coverage`, `specter_stub_ok`, `ready_to_merge`, `blockers`, `next_commands`
+
+2. **Markdown summary** (concise)
+
+Full spec: `.cursor/subagents/merge-marshal.md`

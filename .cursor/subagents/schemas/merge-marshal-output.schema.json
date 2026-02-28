@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "merge-marshal-output.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "branch",
+    "tests_passed",
+    "schemas_valid",
+    "ui_no_free_text",
+    "decision_trace_coverage",
+    "specter_stub_ok",
+    "ready_to_merge",
+    "blockers",
+    "next_commands"
+  ],
+  "properties": {
+    "slice_id": { "type": ["string", "null"] },
+    "branch": { "type": "string" },
+    "tests_passed": { "type": "boolean" },
+    "schemas_valid": { "type": "boolean" },
+    "ui_no_free_text": { "type": "boolean" },
+    "decision_trace_coverage": { "type": "boolean" },
+    "specter_stub_ok": { "type": "boolean" },
+    "ready_to_merge": { "type": "boolean" },
+    "blockers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "next_commands": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "worktree_context": {
+      "type": "object",
+      "properties": {
+        "active_worktree": { "type": "string" },
+        "diff_scope": { "type": "string" }
+      }
+    }
+  }
+}

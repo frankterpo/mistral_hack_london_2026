@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "worktree-result.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "agent_class",
+    "branch",
+    "slice_id",
+    "files_touched",
+    "commands_run",
+    "tests_run",
+    "tests_passed",
+    "decisiontrace_compliance",
+    "tooltrace_compliance",
+    "golden_seed_status",
+    "trace_artifacts",
+    "blockers",
+    "handoff_notes"
+  ],
+  "properties": {
+    "agent_class": { "type": "string" },
+    "branch": { "type": "string" },
+    "slice_id": { "type": "string" },
+    "files_touched": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "commands_run": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tests_run": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tests_passed": { "type": "boolean" },
+    "decisiontrace_compliance": { "type": "boolean" },
+    "tooltrace_compliance": { "type": "boolean" },
+    "golden_seed_status": {
+      "type": "string",
+      "enum": ["not-run", "passed", "failed"]
+    },
+    "trace_artifacts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "blockers": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "handoff_notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

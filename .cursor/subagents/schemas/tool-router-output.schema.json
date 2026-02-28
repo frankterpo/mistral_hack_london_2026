@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "tool-router-output.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["routing_rules", "required_schemas", "cache_config", "budget_config", "specter_stub_rules", "cala_rules"],
+  "properties": {
+    "routing_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "query_type": { "type": "string" },
+          "provider": { "type": "string", "enum": ["Specter", "Cala"] },
+          "condition": { "type": "string" }
+        }
+      }
+    },
+    "required_schemas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "path": { "type": "string" },
+          "scope": { "type": "string", "enum": ["request", "response"] }
+        }
+      }
+    },
+    "cache_config": {
+      "type": "object",
+      "properties": {
+        "ttl_hours": { "type": "number" },
+        "key_strategy": { "type": "string" }
+      }
+    },
+    "budget_config": {
+      "type": "object",
+      "properties": {
+        "max_specter_per_tick": { "type": "integer" },
+        "max_cala_per_tick": { "type": "integer" },
+        "fallback_on_timeout": { "type": "string" }
+      }
+    },
+    "specter_stub_rules": {
+      "type": "object",
+      "properties": {
+        "adapter_path": { "type": "string" },
+        "stub_path": { "type": "string" },
+        "deterministic_defaults": { "type": "boolean" }
+      }
+    },
+    "cala_rules": {
+      "type": "object",
+      "properties": {
+        "timeout_ms": { "type": "integer" },
+        "max_retries": { "type": "integer" }
+      }
+    }
+  }
+}

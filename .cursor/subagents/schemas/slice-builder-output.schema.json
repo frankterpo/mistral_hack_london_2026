@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "slice-builder-output.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["slice_name", "acceptance_criteria", "file_list", "interfaces", "step_plan", "worktree_context"],
+  "properties": {
+    "slice_name": { "type": "string" },
+    "acceptance_criteria": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "file_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "role"],
+        "properties": {
+          "path": { "type": "string" },
+          "role": { "type": "string", "enum": ["create", "modify", "reference"] }
+        }
+      }
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "step_plan": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step", "action", "depends_on"],
+        "properties": {
+          "step": { "type": "integer" },
+          "action": { "type": "string" },
+          "depends_on": { "type": "array", "items": { "type": "integer" } }
+        }
+      }
+    },
+    "worktree_context": {
+      "type": "object",
+      "properties": {
+        "active_worktree": { "type": "string" },
+        "branch": { "type": "string" }
+      }
+    }
+  }
+}
