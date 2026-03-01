@@ -1,0 +1,12 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/coaster/coop/[roomCode]/page": "/coaster/coop/[roomCode]",
+  "/coaster/opengraph-image.png/route": "/coaster/opengraph-image.png",
+  "/coaster/page": "/coaster",
+  "/coop/[roomCode]/page": "/coop/[roomCode]",
+  "/icon.png/route": "/icon.png",
+  "/opengraph-image.png/route": "/opengraph-image.png",
+  "/page": "/",
+  "/thumbnail/page": "/thumbnail"
+}

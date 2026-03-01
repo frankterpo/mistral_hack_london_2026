@@ -1,0 +1,31 @@
+{
+  "app": {
+    "[project]/src/app/_not-found/page": [
+      "static/media/2a65768255d6b625-s.p.d19752fb.woff2",
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2"
+    ],
+    "[project]/src/app/coaster/coop/[roomCode]/page": [
+      "static/media/2a65768255d6b625-s.p.d19752fb.woff2",
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2"
+    ],
+    "[project]/src/app/coaster/page": [
+      "static/media/2a65768255d6b625-s.p.d19752fb.woff2",
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2"
+    ],
+    "[project]/src/app/coop/[roomCode]/page": [
+      "static/media/2a65768255d6b625-s.p.d19752fb.woff2",
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2"
+    ],
+    "[project]/src/app/page": [
+      "static/media/2a65768255d6b625-s.p.d19752fb.woff2",
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2"
+    ],
+    "[project]/src/app/thumbnail/page": [
+      "static/media/2a65768255d6b625-s.p.d19752fb.woff2",
+      "static/media/5c285b27cdda1fe8-s.p.a62025f2.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

@@ -1,0 +1,3 @@
+module.exports=[82898,a=>{"use strict";async function b({params:a}){let{roomCode:b}=await a,c=b.toUpperCase(),d=`Join co-op ${c}`,e=`ISOCITY — ${d}`,f=`You've been invited to build a city together! Join room ${c} to start playing.`;return{title:d,description:f,openGraph:{title:e,description:f,siteName:"IsoCity",images:["/opengraph-image.png"]},twitter:{card:"summary_large_image",title:e,description:f,images:["/opengraph-image.png"]}}}function c({children:a}){return a}a.s(["default",()=>c,"generateMetadata",()=>b])}];
+
+//# sourceMappingURL=src_app_coop_%5BroomCode%5D_layout_tsx_2d082ba1._.js.map
