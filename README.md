@@ -1,4 +1,4 @@
-# IsoCity & IsoCoaster
+# IsoCity, IsoCoaster, and Startup Sim
 
 Open-source isometric simulation games built with Next.js, TypeScript, and HTML5 Canvas.
 
@@ -18,6 +18,22 @@ Open-source isometric simulation games built with Next.js, TypeScript, and HTML5
 </table>
 
 Made with [Cursor](https://cursor.com).
+
+## Startup Sim Backend
+
+This repo now also contains a FastAPI backend scaffold for the startup simulation dashboard.
+
+### Run the API
+
+```bash
+npm run api:dev
+```
+
+### Test the API
+
+```bash
+npm run api:test
+```
 
 ## Features
 

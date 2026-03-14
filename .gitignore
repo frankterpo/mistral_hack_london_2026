@@ -40,3 +40,5 @@ apps/web_recovered/
 .worktrees/
 wt/
 runs/**
+tmp/
+apps/api/.venv/

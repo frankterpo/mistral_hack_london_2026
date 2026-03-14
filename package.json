@@ -4,6 +4,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "api:dev": "cd apps/api && uv run uvicorn startup_sim.api.main:app --app-dir src --reload --host 0.0.0.0 --port 8000",
+    "api:test": "cd apps/api && uv run pytest",
     "dev": "next dev",
     "build": "npm run compress-images && next build",
     "start": "next start",
